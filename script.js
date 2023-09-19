@@ -2,7 +2,7 @@ let max;
 let message="This is not a number, enter a number";
 let messageNegative="Enter a positive number greater than 1";
 let isValid=false; //boolean that will be useful to run the loops
-
+let numberOfTries=0;
 //validation process --> is the input correct ?
 while(!isValid){
     max=prompt("Enter an integer");
@@ -40,8 +40,9 @@ while(!isValid){
             //If the guess is correct, we reset "isValid" to true and so we quit the loop
             isValid=true;
             guess=parseInt(guess);
+            numberOfTries++;
             if(guess==random){
-                alert("You found it !!!\n The number was "+random+"!!");
+                alert("You found it !!!\n The number was "+random+"!!"+"\n Tu as reussi en "+numberOfTries+" essais !");
                 isValid=true;
             }else if (guess<random){
                 //If the guess is not correct, we reset isValid to false (remember that "isValid" was set to true at line 41) 
