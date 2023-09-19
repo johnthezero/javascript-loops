@@ -1,5 +1,6 @@
 let max;
 let message="This is not a number, enter a number";
+let messageNegative="Enter a positive number greater than 1";
 let isValid=false; //boolean that will be useful to run the loops
 
 //validation process --> is the input correct ?
@@ -13,12 +14,16 @@ while(!isValid){
         if(!isNaN(max)){
             //isValid=true --> we quit the loop
             max=parseInt(max);
-            isValid=true;
+            if(max>0){
+                isValid=true;
+            }else{
+                alert(messageNegative);
+            }
         }else{
-            console.log(message);
+            alert(message);
         }
     }else {
-        console.log(message);
+        alert(message);
     }
 }
 
@@ -37,14 +42,15 @@ while(!isValid){
             guess=parseInt(guess);
             if(guess==random){
                 alert("You found it !!!\n The number was "+random+"!!");
+                isValid=true;
             }else if (guess<random){
-                //If the guess is not correct, we reset isValid to false (remember that "isValid" was set to true at line 36) 
+                //If the guess is not correct, we reset isValid to false (remember that "isValid" was set to true at line 41) 
                 //and go back to the beginning of the loop with "continue"
                 alert("Too low, try again !!!");
                 isValid=false;
                 continue;
             }else {
-                //If the guess is not correct, we reset isValid to false (Remember that is was set to true at line 36) 
+                //If the guess is not correct, we reset isValid to false (Remember that is was set to true at line 41) 
                 //and go back to the beginning of the loop with "continue"
                 alert("Too high! Try again");
                 isValid=false;
